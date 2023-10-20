@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
-  before_action :redirect_if_not_logged_in
   def new
     @user = User.new
   end
 
   def show
+    if !logged_in?
+      redirect_to "/login"
+    end
     @user = User.find(params[:id])
   end
 
@@ -22,11 +24,5 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-
-    def redirect_if_not_logged_in
-      if !logged_in?
-          redirect_to "/login"
-      end
     end
 end
