@@ -32,7 +32,15 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_not is_logged_in?
     assert_response :see_other
     assert_redirected_to login_path
+    delete logout_path
     follow_redirect!
-    assert_select "a[href=?]", logout_path,      count: 0
+    assert_select "a[href=?]", logout_path, count: 0
+  end
+
+  test "login with/without remembering" do
+    log_in_as(@user, remember_me: '1')
+    assert_equal cookies[:remember_token], assigns(:user).remember_token
+    log_in_as(@user, remember_me: '0')
+    assert cookies[:remember_token].blank?
   end
 end
