@@ -1,11 +1,13 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+<% provide(:title, "profile") %>
+<h1>Your Profile</h1>
+<div class="user_info">
+  <div class="row">
+    <div class="col-md-6">Name:</div>
+    <div class="col-md-6"><%= @user.name %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">Email:</div>
+    <div class="col-md-6"><%= @user.email %></div>
+  </div>
+  <%= link_to "Edit", edit_user_path(current_user), {class: "btn btn-primary"} %>
 </div>
