@@ -7,7 +7,7 @@ class ItemTest < ActiveSupport::TestCase
   def setup
     @user = users(:one)
     @roast = roasts(:light)
-    @item = Item.new(user_id: @user.id, name: "Item", 
+    @item = @user.items.build(name: "Item", 
                 bitterness: 1, acidity: 1, body: 1, 
                 roast_id: @roast.id,
                 variety: "Typica",

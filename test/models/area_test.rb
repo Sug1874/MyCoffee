@@ -1,12 +1,9 @@
 require "test_helper"
 
 class AreaTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   def setup
     @item = items(:one)
-    @area = Area.new(item_id: @item.id, area: "Brazil")
+    @area = @item.areas.build(area: "Brazil")
   end
 
   test "should be valid" do

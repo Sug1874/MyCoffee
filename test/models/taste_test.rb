@@ -3,7 +3,7 @@ require "test_helper"
 class TasteTest < ActiveSupport::TestCase
   def setup
     @item = items(:one)
-    @taste = Taste.new(item_id: @item.id, taste: "Sweet")
+    @taste = @item.tastes.new(taste: "Sweet")
   end
 
   test "should be valid" do
