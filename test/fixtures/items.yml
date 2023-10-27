@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name: MyString
+  bitterness: 1
+  acidity: 1
+  body: 1
+  roast: light
+  variety: MyString
+  process: MyString
+  farm: MyString
+  shop_url: MyString
+  description: MyText
+
+# two:
+#   user: two
+#   name: MyString
+#   bitterness: 1
+#   acidity: 1
+#   body: 1
+#   roast: two
+#   variety: MyString
+#   process: MyString
+#   farm: MyString
+#   shop_url: MyString
+#   description: MyText

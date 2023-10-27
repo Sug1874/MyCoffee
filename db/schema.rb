@@ -10,7 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_21_153737) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_092957) do
+  create_table "areas", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.string "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_areas_on_item_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name"
+    t.integer "bitterness"
+    t.integer "acidity"
+    t.integer "body"
+    t.integer "roast_id", null: false
+    t.string "variety"
+    t.string "process"
+    t.string "farm"
+    t.text "shop_url"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["roast_id"], name: "index_items_on_roast_id"
+    t.index ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "roasts", force: :cascade do |t|
+    t.string "roast_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tastes", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.string "taste"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_tastes_on_item_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -24,4 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_153737) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "areas", "items"
+  add_foreign_key "items", "roasts"
+  add_foreign_key "items", "users"
+  add_foreign_key "tastes", "items"
 end
