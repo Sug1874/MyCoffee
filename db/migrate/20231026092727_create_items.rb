@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.integer :bitterness
       t.integer :acidity
       t.integer :body
-      t.references :roast, null: false, foreign_key: true
+      t.string :roast
       t.string :variety
       t.string :process
       t.string :farm

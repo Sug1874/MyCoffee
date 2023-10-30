@@ -1,13 +1,6 @@
-<% provide(:title, "profile") %>
+<% provide(:title, "home") %>
 <h1>Your Profile</h1>
-<div class="user_info">
-  <div class="row">
-    <div class="col-md-6">Name:</div>
-    <div class="col-md-6"><%= @user.name %></div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">Email:</div>
-    <div class="col-md-6"><%= @user.email %></div>
-  </div>
-  <%= link_to "Edit", edit_user_path(current_user), {class: "btn btn-primary"} %>
+<div class="row row-cols-4">
+  <%= render @items%>
+  <%= will_paginate @items %>
 </div>

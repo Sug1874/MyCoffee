@@ -1,0 +1,42 @@
+<% provide(:title, "edit item") %>
+<h1>Update item</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @item) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :bitterness %>
+      <%= f.range_field :bitterness, in: 1..5, class: 'form-control' %>
+
+      <%= f.label :acidity %>
+      <%= f.range_field :acidity, in: 1..5, class: 'form-control' %>
+
+      <%= f.label :body %>
+      <%= f.range_field :body, in: 1..5, class: 'form-control' %>
+
+      <%= f.label :roast %>
+      <%= f.text_field :roast, class: 'form-control' %>
+
+      <%= f.label :variety %>
+      <%= f.text_field :variety, class: 'form-control' %>
+
+      <%= f.label :process %>
+      <%= f.text_field :process, class: 'form-control' %>
+
+      <%= f.label :farm %>
+      <%= f.text_field :farm, class: 'form-control' %>
+
+      <%= f.label :shop_url, "Shop URL" %>
+      <%= f.url_field :shop_url, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

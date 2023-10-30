@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <% if yield(:title) != "home" %><li><%= link_to "Home", root_path %></li><% end %>
-          <% if yield(:title) != "profile" %><li><%= link_to "Profile", user_path(current_user) %></li><% end %>
+          <% if yield(:title) != "profile" %><li><%= link_to "Profile", edit_user_path(current_user) %></li><% end %>
           <li><%= link_to "Log out", logout_path, data: {"turbo-method": :delete} %></li>
         <% end %>
       </ul>

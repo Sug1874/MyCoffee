@@ -1,0 +1,17 @@
+<%= link_to(item_path(item)) do %>
+  <div class="col-md-3 col-xs-12 panel">
+    <div class="title"><%= item.name %></div>
+    <div>
+      <span>Bitterness</span>
+      <input type="range" min=1 max=5 value=<%= item.bitterness%> readonly />
+    </div>
+    <div>
+      <span>Acidity</span>
+      <input type="range" min=1 max=5 value=<%= item.acidity%> readonly />
+    </div>
+    <div>
+      <span>Body</span>
+      <input type="range" min=1 max=5 value=<%= item.body%> readonly />
+    </div>
+  </div>
+<% end %>

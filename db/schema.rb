@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_092957) do
     t.integer "bitterness"
     t.integer "acidity"
     t.integer "body"
-    t.integer "roast_id", null: false
+    t.string "roast"
     t.string "variety"
     t.string "process"
     t.string "farm"
@@ -33,15 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_092957) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["roast_id"], name: "index_items_on_roast_id"
     t.index ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "roasts", force: :cascade do |t|
-    t.string "roast_level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tastes", force: :cascade do |t|
@@ -66,7 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_092957) do
   end
 
   add_foreign_key "areas", "items"
-  add_foreign_key "items", "roasts"
   add_foreign_key "items", "users"
   add_foreign_key "tastes", "items"
 end

@@ -6,10 +6,9 @@ class ItemTest < ActiveSupport::TestCase
   # end
   def setup
     @user = users(:one)
-    @roast = roasts(:light)
     @item = @user.items.build(name: "Item", 
                 bitterness: 1, acidity: 1, body: 1, 
-                roast_id: @roast.id,
+                roast: "Light",
                 variety: "Typica",
                 process: "Natural",
                 farm: "abcfarm",
@@ -91,5 +90,9 @@ class ItemTest < ActiveSupport::TestCase
   test "farm should not be too long" do
     @item.farm = "a"*51
     assert_not @item.valid?
+  end
+
+  test "order should be most recent first" do
+    assert_equal items(:most_recent), Item.first
   end
 end

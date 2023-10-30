@@ -1,8 +1,10 @@
 class Item < ApplicationRecord
   belongs_to :user
-  belongs_to :roast
-  has_many :tastes
-  has_many :areas
+  default_scope -> { order(created_at: :desc) }
+  has_many :tastes, dependent: :destroy
+  has_many :areas, dependent: :destroy
+  accepts_nested_attributes_for :tastes, allow_destroy: true
+  accepts_nested_attributes_for :areas, allow_destroy: true
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :bitterness, presence:true, 
