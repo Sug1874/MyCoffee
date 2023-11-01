@@ -31,7 +31,7 @@ user2 = User.find_by(email: "user2@example.com")
     process: "Natural",
     farm: "abcfarm",
     shop_url: "example.com/items/#{i+1}",
-    description: "test"*i
+    description: "This is item for development. "*10
   )
 end
 
@@ -44,7 +44,7 @@ end
     process: "Natural",
     farm: "abcfarm",
     shop_url: "example.com/items/#{i+11}",
-    description: "test"*i
+    description: "This is item for development. "*10
   )
 end
 
@@ -53,6 +53,10 @@ user1.items.first.tastes.create!(
 )
 user1.items.first.tastes.create!(
   taste: "Citrus"
+)
+
+user1.items.second.tastes.create!(
+  taste: "Strawberry"
 )
 
 user1.items.first.areas.create!(

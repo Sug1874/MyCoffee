@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    p params
   end
 
   def destroy

@@ -1,59 +1,64 @@
 <% provide(:title, "detail") %>
 <h1><%= @item.name %></h1>
+<% if !@item.shop_url.empty? %>
+  <a href=<%= @item.shop_url%>><%= @item.shop_url%></a>
+<% end %>
 <div class="item_detail">
   <div class="row">
-    <div class="col-md-6">
-      <div class="row">
-        <div class="col-md-6">Bitterness</div>
-        <div class="col-md-6"><%= @item.bitterness %></div>
+    <div class="col-md-6 col-xs-12">
+      <div class="item_prop">
+        <div class="prop_name">Bitterness</div>
+        <input type="range" min=1 max=5 value=<%= @item.bitterness%> readonly />
       </div>
-      <div class="row">
-        <div class="col-md-6">Acidity</div>
-        <div class="col-md-6"><%= @item.acidity %></div>
+      <div class="item_prop">
+        <div class="prop_name">Acidity</div>
+        <input type="range" min=1 max=5 value=<%= @item.acidity%> readonly />
       </div>
-      <div class="row">
-        <div class="col-md-6">Body</div>
-        <div class="col-md-6"><%= @item.body %></div>
+      <div class="item_prop">
+        <div class="prop_name">Body</div>
+        <input type="range" min=1 max=5 value=<%= @item.body%> readonly />
       </div>
-      <div>
+      <div class="tastes">
         <% if @item.tastes.any? %>
           <%  @item.tastes.each do |taste| %>
-            <%= taste.taste %>
+            <span><%= taste.taste %></span>
           <% end %>
         <% end %>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="row">
+      <div class="item_prop">
         <% if @item.areas.any? %>
-          <div class="col-md-6">Area</div>
-          <div class="col-md-6">
+          <div class="prop_name">Area</div>
+          <div>
             <% @item.areas.each do |area| %>
               <%= area.area %>,
             <% end %>
           </div>
         <% end %>
       </div>
-      <div class="row">
-        <div class="col-md-6">Roast</div>
-        <div class="col-md-6"><%= @item.roast %></div>
+      <div class="item_prop">
+        <div class="prop_name">Roast</div>
+        <div><%= @item.roast %></div>
       </div>
-      <div class="row">
-        <div class="col-md-6">Variety</div>
-        <div class="col-md-6"><%= @item.variety %></div>
+      <div class="item_prop">
+        <div class="prop_name">Variety</div>
+        <div><%= @item.variety %></div>
       </div>
-      <div class="row">
-        <div class="col-md-6">Process</div>
-        <div class="col-md-6"><%= @item.process %></div>
+      <div class="item_prop">
+        <div class="prop_name">Process</div>
+        <div><%= @item.process %></div>
       </div>
-      <div class="row">
-        <div class="col-md-6">Farm</div>
-        <div class="col-md-6"><%= @item.farm %></div>
+      <div class="item_prop">
+        <div class="prop_name">Farm</div>
+        <div><%= @item.farm %></div>
       </div>
     </div>
+    <div class="col-md-12 item_description">
+      <%= @item.description %>
+    </div>
   </div>
-  <div>
-    <%= @item.description %>
+  <div class="button_container">
+    <%= link_to "Edit", edit_item_path(@item), {class: "btn btn-primary"} %>
   </div>
-  <%= link_to "Edit", edit_item_path(@item), {class: "btn btn-primary"} %>
 </div>

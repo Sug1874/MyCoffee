@@ -18,6 +18,28 @@
       <%= f.label :body %>
       <%= f.range_field :body, in: 1..5, class: 'form-control' %>
 
+      <%= f.label :tastes %>
+      <div id="taste_form_container">
+        <%= f.fields_for :tastes do | taste | %>
+          <%= taste.text_field :taste, data: {index: taste.index}, class: "taste_form"  %>
+        <% end %>
+      </div>
+      <div class="button_container">
+        <button id="add_taste" type="button">add</button>
+        <button id="reduce_taste" type="button">reduce</button>
+      </div>
+
+      <%= f.label :areas %>
+      <div id="area_form_container">
+        <%= f.fields_for :areas do | area | %>
+          <%= area.text_field :area, data: {index: area.index}, class: "area_form" %>
+        <% end %>
+      </div>
+      <div class="button_container">
+        <button id="add_area" type="button">add</button>
+        <button id="reduce_area" type="button">reduce</button>
+      </div>
+
       <%= f.label :roast %>
       <%= f.text_field :roast, class: 'form-control' %>
 
