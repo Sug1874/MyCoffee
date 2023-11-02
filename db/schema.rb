@@ -22,9 +22,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_092957) do
   create_table "items", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
-    t.integer "bitterness"
-    t.integer "acidity"
-    t.integer "body"
+    t.integer "bitterness", default: 1
+    t.integer "acidity", default: 1
+    t.integer "body", default: 1
     t.string "roast"
     t.string "variety"
     t.string "process"

@@ -1,8 +1,10 @@
 <% provide(:title, "detail") %>
-<h1><%= @item.name %></h1>
-<% if !@item.shop_url.empty? %>
-  <a href=<%= @item.shop_url%>><%= @item.shop_url%></a>
-<% end %>
+<div class="title_container">
+  <h1><%= @item.name %></h1>
+  <% if !@item.shop_url.empty? %>
+    <a href=<%= @item.shop_url%>><%= @item.shop_url%></a>
+  <% end %>
+</div>
 <div class="item_detail">
   <div class="row">
     <div class="col-md-6 col-xs-12">
@@ -31,8 +33,9 @@
         <% if @item.areas.any? %>
           <div class="prop_name">Area</div>
           <div>
-            <% @item.areas.each do |area| %>
-              <%= area.area %>,
+            <% @item.areas.each_with_index do |area, i| %>
+              <% if i != 0 %>,<% end %>
+              <%= area.area %>
             <% end %>
           </div>
         <% end %>
@@ -59,6 +62,8 @@
     </div>
   </div>
   <div class="button_container">
-    <%= link_to "Edit", edit_item_path(@item), {class: "btn btn-primary"} %>
+    <%= link_to "Delete", @item, class: "btn btn-danger",
+      data: { turbo_method: :delete, turbo_confirm: "You sure?" } %>
+    <%= link_to "Edit", edit_item_path(@item), class: "btn btn-primary" %>
   </div>
 </div>

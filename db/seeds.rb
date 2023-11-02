@@ -30,7 +30,7 @@ user2 = User.find_by(email: "user2@example.com")
     variety: "Typica",
     process: "Natural",
     farm: "abcfarm",
-    shop_url: "example.com/items/#{i+1}",
+    shop_url: "http://example.com/items/#{i+1}",
     description: "This is item for development. "*10
   )
 end
@@ -43,7 +43,7 @@ end
     variety: "Typica",
     process: "Natural",
     farm: "abcfarm",
-    shop_url: "example.com/items/#{i+11}",
+    shop_url: "http://example.com/items/#{i+21}",
     description: "This is item for development. "*10
   )
 end

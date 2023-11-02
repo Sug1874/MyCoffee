@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
-  has_many :tastes, dependent: :destroy
-  has_many :areas, dependent: :destroy
+  has_many :tastes, dependent: :destroy, inverse_of: :item
+  has_many :areas, dependent: :destroy, inverse_of: :item
   accepts_nested_attributes_for :tastes, allow_destroy: true
   accepts_nested_attributes_for :areas, allow_destroy: true
 
