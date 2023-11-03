@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
       flash[:success] = "New item created"
       redirect_to root_path
     else
-      flash[:danger] = "Failed to create new item"
+      flash[:danger] = "Create new item failed"
       redirect_to root_path
     end
   end
@@ -27,6 +27,35 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
+    ActiveRecord::Base.transaction do
+      if @item.update!(item_params)
+        if item_params.has_key?(:tastes_attributes)
+          item_params[:tastes_attributes].each do |taste_hash|
+            if (!taste_hash[1].has_key?(:taste)) && taste_hash[1].has_key?(:id)
+              Taste.find(taste_hash[1][:id]).destroy!
+            end
+          end
+        end
+
+        if item_params.has_key?(:areas_attributes)
+          item_params[:areas_attributes].each do |area_hash|
+            if (!area_hash[1].has_key?(:area)) && area_hash[1].has_key?(:id)
+              Area.find(area_hash[1][:id]).destroy!
+            end
+          end
+        end
+
+        flash[:success] = "Item updated"
+        redirect_to @item
+      else
+        flash[:danger] = "Item update failed"
+        redirect_to @item
+      end
+    end
+  rescue
+    flash[:danger] = "Item update failed"
+    redirect_to @item
   end
 
   def destroy
@@ -48,6 +77,6 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:name, :bitterness, :acidity, :body, :roast, :variety, :process, :farm, :shop_url, :description,
-                                    tastes_attributes: [:taste], areas_attributes: [:area])
+                                    tastes_attributes: [:taste, :id], areas_attributes: [:area, :id])
     end
 end
