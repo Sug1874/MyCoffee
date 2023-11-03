@@ -147,3 +147,79 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+// user home
+.panel {
+  border: 1px solid black;
+  padding: 0.5em;
+  color: #000;
+  .title{
+    font-size: 2em;
+    margin: 0.2em;
+    overflow: hidden;
+  }
+}
+
+.item_prop {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  gap: 5px;
+  :nth-child(1) {
+    font-size: 1em;
+    flex: 2;
+  }
+  :nth-child(2) {
+    flex: 3;
+  }
+}
+
+.item_detail {
+  .row > div{
+    margin-bottom: 1em;
+  }
+  .item_prop {
+    font-size: 1.4em;
+    margin-bottom: 1em;
+    .prop_name {
+      color: #808080;
+    }
+  }
+  .item_description {
+    font-size: 1.2em;
+    padding: 1em 3em;
+  }
+  .tastes {
+    padding: 0.5em 1em;
+    font-size: 1.4em;
+    span {
+      display: inline-block;
+      margin: 0.2em 0.5em;
+      padding: 0.4em 0.6em;
+      background-color: #808080;
+      color: #fff;
+      border-radius: 1.0em;
+    }
+  }
+}
+
+.title_container {
+  h1{
+    margin-bottom: 10px;
+  }
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.button_container {
+  text-align: center;
+  .btn{
+    width: 6em;
+    margin: 0 2em;
+  }
+}
+
+.top_button_container {
+  text-align: right;
+  margin-bottom: 1em;
+}

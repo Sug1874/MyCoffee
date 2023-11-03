@@ -1,0 +1,57 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name: MyString
+  bitterness: 1
+  acidity: 1
+  body: 1
+  roast: MyString
+  variety: MyString
+  process: MyString
+  farm: MyString
+  shop_url: MyString
+  description: MyText
+  created_at: <%= 10.minutes.ago %>
+
+two:
+  user: two
+  name: MyString
+  bitterness: 1
+  acidity: 1
+  body: 1
+  roast: MyString
+  variety: MyString
+  process: MyString
+  farm: MyString
+  shop_url: MyString
+  description: MyText
+  created_at: <%= 10.hours.ago %>
+
+three:
+  user: two
+  name: MyString
+  bitterness: 1
+  acidity: 1
+  body: 1
+  roast: MyString
+  variety: MyString
+  process: MyString
+  farm: MyString
+  shop_url: MyString
+  description: MyText
+  created_at: <%= 30.minutes.ago %>
+
+most_recent:
+  user: two
+  name: MyString
+  bitterness: 1
+  acidity: 1
+  body: 1
+  roast: MyString
+  variety: MyString
+  process: MyString
+  farm: MyString
+  shop_url: MyString
+  description: MyText
+  created_at: <%= Time.zone.now %>
