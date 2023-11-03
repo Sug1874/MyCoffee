@@ -1,24 +1,29 @@
-# README
+# My Coffee
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+You can use this application to record and refer to information and impressions of the coffee you drink.
 
-Things you may want to cover:
+## How to run
+1. Clone this repository
+```bash
+git clone https://github.com/Sug1874/MyCoffee.git
+```
 
-* Ruby version
+2. Change current directory
+```bash
+cd MyCoffee
+```
 
-* System dependencies
+3. Set up 
+```bash
+bundle install
+rails db:migrate
+```
 
-* Configuration
+4. Start application
+```bash
+rails server
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Technologies
+![image](/images/tech.png)
