@@ -1,9 +1,11 @@
 # My Coffee
 
 ## Overview
-You can use this application to record and refer to information and impressions of the coffee you drink.
+By using this application, you can record and refer to information and impressions of the coffee you drink.
 
 ## How to run
+This is Ruby application. So Ruby must be installed on your machine.
+
 1. Clone this repository
 ```bash
 git clone https://github.com/Sug1874/MyCoffee.git
@@ -14,9 +16,14 @@ git clone https://github.com/Sug1874/MyCoffee.git
 cd MyCoffee
 ```
 
-3. Set up 
+3. Install bundle and required gem
 ```bash
+gem install bundler
 bundle install
+```
+
+3. Set up Database 
+```bash
 rails db:migrate
 ```
 
