@@ -1,0 +1,65 @@
+<% provide(:title, "new item") %>
+<div class="title_container">
+  <h1>New item</h1>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @item) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :bitterness %>
+      <%= f.range_field :bitterness, in: 1..5, class: 'form-control' %>
+
+      <%= f.label :acidity %>
+      <%= f.range_field :acidity, in: 1..5, class: 'form-control' %>
+
+      <%= f.label :body %>
+      <%= f.range_field :body, in: 1..5, class: 'form-control' %>
+
+      <%= f.label :tastes %>
+      <div id="taste_form_container">
+        <%= f.fields_for :tastes do | taste | %>
+          <%= taste.text_field :taste, data: {index: taste.index}, class: "taste_form"  %>
+        <% end %>
+      </div>
+      <div class="button_container">
+        <button id="add_taste" type="button">add</button>
+        <button id="reduce_taste" type="button">reduce</button>
+      </div>
+
+      <%= f.label :areas %>
+      <div id="area_form_container">
+        <%= f.fields_for :areas do | area | %>
+          <%= area.text_field :area, data: {index: area.index}, class: "area_form" %>
+        <% end %>
+      </div>
+      <div class="button_container">
+        <button id="add_area" type="button">add</button>
+        <button id="reduce_area" type="button">reduce</button>
+      </div>
+
+      <%= f.label :roast %>
+      <%= f.text_field :roast, class: 'form-control' %>
+
+      <%= f.label :variety %>
+      <%= f.text_field :variety, class: 'form-control' %>
+
+      <%= f.label :process %>
+      <%= f.text_field :process, class: 'form-control' %>
+
+      <%= f.label :farm %>
+      <%= f.text_field :farm, class: 'form-control' %>
+
+      <%= f.label :shop_url, "Shop URL" %>
+      <%= f.url_field :shop_url, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

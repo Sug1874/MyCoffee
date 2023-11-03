@@ -1,0 +1,13 @@
+<% provide(:title, "home") %>
+<div class="title_container">
+  <h1>Your Items</h1>
+</div>  
+<div class="top_button_container">
+  <%= link_to "New Item", new_item_path, class: "btn btn-success" %>
+</div>
+<div class="row row-cols-4">
+  <%= render @items%>
+  <div class="button_container">
+    <%= will_paginate @items %>
+  </div>
+</div>
